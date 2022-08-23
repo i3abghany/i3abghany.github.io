@@ -1,0 +1,54 @@
+
+body {
+    background-color: #f5fff8;
+    color: black;
+    font-family: 'Rubik';
+}
+
+#container {
+    box-sizing: border-box;
+    text-align: center;
+    display: block;
+    margin-top: 50px !important;
+    font-size: 28pt;
+    height: 20%;
+    width: 65%;
+    margin: auto;
+}
+
+#mah-img {
+    margin: 5%;
+    width: 30%;
+    height: auto;
+    border-radius: 45%;
+}
+
+#content {
+    font-size: 16pt;
+}
+
+#bold-text {
+    display: block;
+    text-align: left;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#links {
+    list-style: none;
+    margin: 5px;
+    text-align: center;
+}
+
+#links li {
+    display: inline;
+}
+
+a {
+    color: mediumseagreen;
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
