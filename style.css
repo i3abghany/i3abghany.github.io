@@ -11,14 +11,13 @@ body {
     display: block;
     margin-top: 50px !important;
     font-size: 28pt;
-    height: 20%;
-    width: 65%;
+    max-width: 1200px;
     margin: auto;
 }
 
 #mah-img {
     margin: 5%;
-    width: 30%;
+    width: 35%;
     height: auto;
     border-radius: 45%;
 }
