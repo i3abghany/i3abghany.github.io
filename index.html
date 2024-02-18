@@ -1,61 +1,120 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mahmoud Abumandour</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/c83e9364b0.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik">
-    <meta http-equiv='cache-control' content='no-cache'>
-    <meta http-equiv='expires' content='0'>
-    <meta http-equiv='pragma' content='no-cache'>
-</head>
-<body>
+---
+layout: default
+robots: noindex
+---
 
-    <div id="container">
-        <img id="mah-img" src="res/mah.jpeg" alt="A picture of Mahmoud Abumandour">
-        <br>
-        Mahmoud Abumandour
-            <ul id="links", style="padding: 0px">
-                <li><a target="_blank" href="https://www.linkedin.com/in/abumandour/"><i class="fa-brands fa-linkedin-in fa-2xs"></i></a></li>
-                <li><a target="_blank" href="https://github.com/i3abghany/"><i class="fa-brands fa-github fa-2xs"></i></a></li>
-                <li><a target="_blank" href="mailto:mahmoud_mandour@sfu.ca"><i class="fa-solid fa-envelope fa-2xs"></i></a></li>
-                <li><a target="_blank" href="res/Mahmoud_Abumandour_Nov_2023.pdf"><i class="fa-solid fa-file fa-2xs"></i></a></li>
-            </ul>
-        <hr>
-        
-        <p id="content">
-            Hello! I am Mahmoud Abumandour, a second-year Master of Science
-            student at <a target="_blank" href="https://www.sfu.ca">Simon Fraser University</a>, supervised by <a target="_blank" href="https://www2.cs.sfu.ca/~alaa/alaa_home.shtml">Professor Alaa Alameldeen</a>.
+<div class="main-post-list">
+  <script src="https://kit.fontawesome.com/c83e9364b0.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik">
 
-            I am interested in a wide spectrum of technologies from software systems to hardware and their interaction.
-        </p>
-        <p id="content">
-            I am currently working on securing deep learning applications running on edge devices against hardware fault injection attacks.
-        </p>
+  <header class="post-header">
+    <br/>
+    <h1 class="post-title">About</h1>
+  </header>
 
-        <span id="bold-text"> Work Experience </span>
+  <section class="post">
+    <p class="content-paragraph" style="color:#2B2B2B">
+      I am Mahmoud Abumandour, a second-year Master of Science student at <a target="_blank" href="https://www.sfu.ca">Simon Fraser University</a>, supervised by <a target="_blank" href="https://www2.cs.sfu.ca/~alaa/alaa_home.shtml">Professor Alaa Alameldeen</a>.
 
-        <ul id="content", style="text-align: left;">
-            <!-- <li>Graduate Intern @ Intel Corporation (Jan 2024 - Present)</li> -->
-            <li>Graduate Research Assistant @ Simon Fraser University (Sep 2022 - Present)</li>
-            <li>Software Developer @ Google Summer of Code, the RTEMS organization (May 2022 - Sep 2022)</li>
-            <li>Software Engineering Intern Master Micro (Oct 2021 - Feb 2022)</li>
-            <li>Software Developer @ Google Summer of Code, the QEMU organization (May 2021 - Sep 2021)</li>
-            <br>
-            I have also been an active open source contributor in the SerenityOS
-            project and the QEMU emulator. 
-        </ul>
+      I am interested in a wide spectrum of technologies from software systems to hardware and their interaction.
+    </p>
 
-        
-        <span id="bold-text"> Education </span>
-        <ul id="content", style="text-align: left;">
-            <li>Master of Science in Computing Science, Simon Fraser University (Sep 2022 - Present)</li>
-            <li>Bachelor of Science in Communication and Computer Engineering, Mansoura University (Oct 2017 - Jul 2022)</li>
-        </ul>
-    </div>
+    <p class="content-paragraph" style="color:#2B2B2B">
+      My current research concentration is securing deep learning applications running on edge devices against fault injection attacks.
+    </p>
 
-</body>
-</html>
+  <hr class="post-list__divider ">
+  <h3 class="nobreak"><i align="left" class="fa-solid fa-code fa-xs"></i> Experience</h3>
+
+  <p style="margin-top: 25px; margin-bottom: 0px"><strong>Intel Corporation (Santa Clara, CA - Remote)</strong></p>
+  <ul style="margin-top: 5px">
+    <li><span style="color:#2B2B2B">Graduate Intern - CPU Architecture</span> (Jan ‘24 – Present)</li>
+    <ul>
+      <li>Model and analyse the performance of features in the CPU fetch engine</li>
+    </ul>
+  </ul>
+
+  <p style="margin-bottom: 0px"><strong>Simon Fraser University (BC, Canada)</strong></p>
+  <ul style="margin-top: 5px">
+    <li><span style="color:#2B2B2B">Research Assistant</span> (Sep ‘22 – Present)</li>
+    <ul>
+    <li>Assessed the impact of different attack vectors against quantized DNNs</li>
+    <li>Devised a fatal bit-flip attack against quantized DNNs and explored potential defenses</li>
+    </ul>
+
+    <li><span style="color:#2B2B2B">Teaching Assistant</span> (Jan ‘23 – Dec 2023)</li>
+    <ul style="margin-top: 5px">
+      <li>CMPT 295: Introduction to Computer Systems (Spring 2023)</li>
+      <li>CMPT 379: Principles of Compiler Design (Summer 2023)</li>
+      <li>CMPT 750: Computer Architecture (Fall 2023)</li>
+    </ul>
+  </ul>
+
+  <p style="margin-bottom: 0px"><strong>Google Summer of Code (Remote)</strong></p>
+  <ul style="margin-top: 5px">
+    <li><span style="color:#2B2B2B">Software Developer - The RTEMS Organization</span> (May '22 - Sep '22)</li>
+    <ul>
+      <li>Used profiler-guided optimizations to achieve 8x performance improvement in the release generation process</li>
+      <li><a href="https://avx.hashnode.dev/gsoc-2022-final-submission-rtems-release-generator" target="_blank">RTEMS: Release Generator</a></li>
+    </ul>
+  </ul>
+
+  <p style="margin-bottom: 0px"><strong>Master Micro (Cairo, Egypt)</strong></p>
+  <ul style="margin-top: 5px">
+    <li><span style="color:#2B2B2B">Software Engineering Intern</span> (Oct '21 - Feb '22)</li>
+    <ul>
+      <li>Designed and assessed the performance of two data storage schemes of the Design Database, the central data structure for storing design points.</li>
+    </ul>
+  </ul>
+
+  <p style="margin-bottom: 0px"><strong>Google Summer of Code (Remote)</strong></p>
+  <ul style="margin-top: 5px">
+    <li><span style="color:#2B2B2B">Software Developer - The QEMU Organization</span> (May '21 - Aug '21)</li>
+    <ul>
+      <li>Implemented multicore cache emulation and performance evaluation of userspace and full-system workloads</li>
+      <li> <a href="https://www.qemu.org/2021/08/19/tcg-cache-modelling-plugin/" target="_blank">QEMU: TCG Cache Modelling Plugin</a></li>
+    </ul>
+  </ul>
+
+  <hr class="post-list__divider ">
+  <h3 class="nobreak"><i align="left" class="fa-solid fa-graduation-cap fa-xs"></i> Education</h3>
+
+  <p style="margin-top: 25px; margin-bottom: 0px"><strong>Simon Fraser University</strong> (BC, Canada)</p>
+      
+  <ul style="margin-top: 5px">
+    <li><span style="color:#2B2B2B">MSc in Computer Science (Sep ‘22 – Present)</span>
+      <ul>
+        <li>Advisor: Prof. <a href="https://www2.cs.sfu.ca/~alaa/alaa_home.shtml" target="_blank">Alaa Alameldeen</a></li>
+        <li>Focus: Security and reliability of edge platforms running DNN workloads</li>
+        <li>GPA: 4.0</li>
+      </ul>
+    </li>
+  <li style="margin-top: 5px"><span style="color:#2B2B2B">BSc in Computer and Communication Engineering (Oct ‘17 – Jul ‘22)</span>
+      <ul>
+        <li>GPA: 3.96 - Ranked first on a 200-student major cohort</li>
+      </ul>
+    </li>
+  </ul>
+    
+
+  <ol class="post-list">
+    {% for post in paginator.posts %}
+      <li>
+        <h2 class="post-list__post-title post-title"><a href="{{ site.baseurl }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h2>
+        <p class="excerpt">{{ post.excerpt | strip_html }}&hellip;</p>
+        <div class="post-list__meta">
+            <time datetime="{{ post.date | date: "%Y-%m-%d %H:%M" }}" class="post-list__meta--date date">{{ post.date | date: "%-d %b %Y" }}</time>
+            {% if post.tags.size > 0 %}
+            &#8226; <span class="post-meta__tags">on {% for tag in post.tags %}<a href="{{ site.baseurl }}/tags/#{{ tag }}">{{ tag }}</a>{% if forloop.last == false %}, {% endif %}{% endfor %}</span>
+            {% endif %}
+        </div>
+        <hr class="post-list__divider">
+      </li>
+    {% endfor %}
+  </ol>
+
+  {% if paginator.previous_page or paginator.next_page %}
+      {% include pagination.html %}
+  {% endif %}
+
+</div>
