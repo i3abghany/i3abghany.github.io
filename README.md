@@ -1,23 +1,6 @@
-# jekyll-uno
+# Mahmoud Abumandour's Site
 
-Jekyll-Uno - a minimal, responsive theme for Jekyll based on the [Uno](https://github.com/daleanthony/Uno) theme for Ghost.
-
-> :warning:
-  This theme requires ruby and rubygems installed
-
-### Features
-
-* Clean layout
-* Resposive layout
-* Pagination
-* Syntax highlighting
-* Social links
-* Tags listing page
-* Categories listing page
-* Google Analytics integration
-* Disqus integration
-
----
+Uses Jekyll-Uno
 
 ### Install and Test
 
@@ -39,16 +22,5 @@ gem 'kramdown'
 gem 'kramdown-parser-gfm'
 ```
 ---
-
-### Demo and Download
-
-[Demo](http://joshgerdes.com/jekyll-uno/)
-[Download](https://github.com/joshgerdes/jekyll-uno/archive/master.zip)
-
-![jekyll-uno - free Jekyll theme](/screenshot.png)
-
----
-
-### Copyright and license
 
 It is under [the MIT license](/LICENSE).
