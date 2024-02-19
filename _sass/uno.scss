@@ -68,6 +68,15 @@ body {
 	display: inline-block;
 	text-decoration: inherit; }
 
+.ikon:before {
+	font-style: normal;
+	font-variant: normal;
+	line-height: 1.2;
+	-webkit-font-smoothing: antialiased;
+	display: inline-block;
+	text-decoration: inherit;
+}
+
 .icon-address-book:before {
 	content: "\f100"; }
 
@@ -1394,7 +1403,7 @@ nav {
 		padding: 6px 8px 6px 9px; }
 		.navigation--social a .label {
 			display: none; }
-		.navigation--social a .icon {
+		.navigation--social a .icon .ikon {
 			display: block;
 			font-size: 1.7em; }
 
