@@ -85,21 +85,15 @@
                 </a>
               </li>
               {% endif %}
-
-              <!-- RSS -->
-              <!-- <li class="navigation__item">
-                <a href="{{ site.baseurl }}/feed.xml" title="Subscribe" target="_blank">
-                  <i class="icon icon-rss"></i>
-                  <span class="label">RSS</span>
-                </a>
-              </li> -->
-
+                
+              {% if site.author.resume_link %}
               <li class="navigation__item">
                 <a href="{{ site.baseurl }}/{{ site.author.resume_link }}" title="Resume" target="_blank">
                   <i class="ikon fa fa-file fa-xl"></i>
                   <span class="label">Resume</span>
                 </a>
               </li>
+              {% endif %}
 
             </ul>
           </nav>
