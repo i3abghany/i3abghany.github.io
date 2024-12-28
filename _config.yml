@@ -1,10 +1,8 @@
 # Site settings
 title: Mahmoud Abumandour
-description: 'PhD Student @ SFU | Ex CPU Architecture Intern @ Intel'
+description: 'PhD Student @ SFU'
 url: 'http://joshgerdes.com/jekyll-uno'
 baseurl: ''
-# google_analytics: 'UA-XXXXXX-X'
-# disqus_shortname: 'your-disqus-name'
 disable_landing_page: true
 
 author:
@@ -12,7 +10,7 @@ author:
   email: mahmoud_abumandour@sfu.ca
   github_username:  i3abghany
   linkedin_username:  abumandour
-  resume_link: 'files/Mahmoud_Abumandour_Sep_2024.pdf'
+  resume_link: 'files/Mahmoud_Abumandour_Nov_2024.pdf'
 
 defaults:
   -
