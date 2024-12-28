@@ -6,6 +6,19 @@
 
 /* Modifications */
 
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f9f9f9;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Raleway', serif;
+}
+
+
 pre.highlight,
 .highlight pre {
   padding: 10px;
