@@ -21,7 +21,7 @@ header h1 {
 .container {
     max-width: 1000px;
     margin: 2rem auto;
-    padding: 1rem 4rem;
+    padding: 2rem 4rem;
 }
 
 .profile-image {
@@ -135,4 +135,36 @@ body.dark-mode a {
 
 body.dark-mode .toggle-btn {
     color: #80bfff;
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    header p {
+        font-size: 0.9rem;
+    }
+
+    #dark-mode-toggle {
+        font-size: 0.9rem;
+    }
+
+    .icons a {
+        font-size: 1.2rem;
+    }
+
+    .container {
+        padding: 1rem 2.5rem;
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .experience-ul li {
+        margin-bottom: 0.6rem;
+    }
 }
