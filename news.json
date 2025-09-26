@@ -2,10 +2,10 @@
   {
     "date": "2025-09-24",
     "title": "Paper accepted at HASP 2025",
-    "description": "Our paper on Real-Time Bit-Flip Protection for Deep Neural Networks on GPUs has been accepted at [HASP 2025](https://hasp2025.org/), co-located with [MICRO 2025](https://www.microarch.org/micro58/)."
+    "description": "Our paper on Real-Time Bit-Flip Protection for Deep Neural Networks on GPUs has been accepted at Hardware and Architectural Support for Security and Privacy [HASP 2025](https://haspworkshop.org/2025/), co-located with [MICRO 2025](https://www.microarch.org/micro58/)."
   },
   {
-    "date": "2025-05-24",
+    "date": "2025-09-24",
     "title": "Paper accepted at SPICE 2025",
     "description": "Our paper on Position-Adaptive Temporal Sparsity for KV Caches in Long-Context LLMs has been accepted at [SPICE 2025](https://spice.cs.umd.edu/), co-located with [MICRO 2025](https://www.microarch.org/micro58/)."
   }
