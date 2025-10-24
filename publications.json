@@ -1,0 +1,11 @@
+[
+    {
+        "title": "WeightSentry: Real-Time Bit-Flip Protection for Deep Neural Networks on GPUs",
+        "authors": ["Mahmoud Abumandour", "Srinija Ramischetty", "Guru Venkataramani", "Alaa Alameldeen"],
+        "venue": "International Workshop on Hardware and Architectural Support for Security and Privacy (HASP)",
+        "year": 2025,
+        "links": {
+            "paper": "files/papers/hasp25.pdf"
+        }
+    }
+]
