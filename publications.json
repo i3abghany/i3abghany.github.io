@@ -5,7 +5,9 @@
         "venue": "International Workshop on Hardware and Architectural Support for Security and Privacy (HASP)",
         "year": 2025,
         "links": {
-            "paper": "files/papers/hasp25.pdf"
+            "paper": "files/papers/hasp25.pdf",
+            "doi": "https://doi.org/10.1145/3768725.3768734",
+            "slides": "files/papers/slides/WeightSentry_HASP_2025.pdf"
         }
     }
 ]
