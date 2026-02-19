@@ -1,9 +1,56 @@
 document.querySelectorAll('.toggle-btn').forEach(button => {
     button.addEventListener('click', () => {
         const details = button.nextElementSibling;
-        details.style.display = details.style.display === 'block' ? 'none' : 'block';
+        const isVisible = details.classList.contains('show');
+
+        button.classList.toggle('active');
+
+        if (isVisible) {
+            details.classList.remove('show');
+            setTimeout(() => details.style.display = 'none', 300); // Wait for animation
+        } else {
+            details.style.display = 'block';
+            setTimeout(() => details.classList.add('show'), 10);
+        }
     });
 });
+
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+`;
+
+document.head.appendChild(style);
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    });
+});
+
+let lastScrollTop = 0;
+window.addEventListener('scroll', () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const header = document.querySelector('header');
+    if (header) {
+        header.style.transform = `translateY(${scrollTop * 0.3}px)`;
+        header.style.opacity = Math.max(0.7, 1 - scrollTop / 500);
+    }
+    lastScrollTop = scrollTop;
+}, { passive: true });
 
 const toggleButton = document.getElementById('dark-mode-toggle');
 
