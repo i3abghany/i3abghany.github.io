@@ -1,153 +1,130 @@
-document.querySelectorAll('.toggle-btn').forEach(button => {
+const toggleButtons = document.querySelectorAll('.toggle-btn');
+
+toggleButtons.forEach((button) => {
+    const details = button.nextElementSibling;
+    if (!details) {
+        return;
+    }
+
+    button.setAttribute('aria-expanded', 'false');
+    details.hidden = true;
+
     button.addEventListener('click', () => {
-        const details = button.nextElementSibling;
-        const isVisible = details.classList.contains('show');
+        const isOpen = button.classList.contains('active');
 
-        button.classList.toggle('active');
-
-        if (isVisible) {
-            details.classList.remove('show');
-            setTimeout(() => details.style.display = 'none', 300); // Wait for animation
-        } else {
-            details.style.display = 'block';
-            setTimeout(() => details.classList.add('show'), 10);
-        }
+        button.classList.toggle('active', !isOpen);
+        button.setAttribute('aria-expanded', String(!isOpen));
+        details.classList.toggle('show', !isOpen);
+        details.hidden = isOpen;
     });
 });
-
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes slideDown {
-        from {
-            opacity: 0;
-            transform: translateY(-10px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-`;
-
-document.head.appendChild(style);
-
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-    });
-});
-
-let lastScrollTop = 0;
-window.addEventListener('scroll', () => {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    const header = document.querySelector('header');
-    if (header) {
-        header.style.transform = `translateY(${scrollTop * 0.3}px)`;
-        header.style.opacity = Math.max(0.7, 1 - scrollTop / 500);
-    }
-    lastScrollTop = scrollTop;
-}, { passive: true });
 
 const toggleButton = document.getElementById('dark-mode-toggle');
+const storedTheme = localStorage.getItem('theme');
 
-if (localStorage.getItem('dark-mode') === 'enabled') {
+if (storedTheme === 'dark') {
     document.body.classList.add('dark-mode');
-    toggleButton.textContent = '☀️';
 }
 
-toggleButton.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
+if (toggleButton) {
+    toggleButton.textContent = document.body.classList.contains('dark-mode') ? 'Day' : 'Moon';
 
-    if (document.body.classList.contains('dark-mode')) {
-        localStorage.setItem('dark-mode', 'enabled');
-        toggleButton.textContent = '☀️';
-    } else {
-        localStorage.setItem('dark-mode', 'disabled');
-        toggleButton.textContent = '🌙';
-    }
-});
+    toggleButton.addEventListener('click', () => {
+        const isDark = document.body.classList.toggle('dark-mode');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        toggleButton.textContent = isDark ? 'Day' : 'Moon';
+    });
+}
+
+function parseInlineLinks(text) {
+    const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
+    return text.replace(linkRegex, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
+}
+
+function formatIsoDate(dateString) {
+    const date = new Date(`${dateString}T00:00:00`);
+    return new Intl.DateTimeFormat('en', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric'
+    }).format(date);
+}
 
 fetch('news.json')
-    .then(response => response.json())
-    .then(newsEntries => {
+    .then((response) => response.json())
+    .then((newsEntries) => {
         const newsList = document.getElementById('news-list');
-        if (!newsList) return;
-        newsEntries.sort((a, b) => b.date.localeCompare(a.date));
-        newsEntries.forEach(entry => {
-            const li = document.createElement('li');
-            li.className = 'news-item';
+        if (!newsList) {
+            return;
+        }
 
-            function parseInlineLinks(text) {
-                const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
-                return text.replace(linkRegex, '<a href="$2" target="_blank">$1</a>');
-            }
+        newsEntries
+            .sort((a, b) => b.date.localeCompare(a.date))
+            .forEach((entry) => {
+                const li = document.createElement('li');
+                li.className = 'news-item';
 
-            const parsedDescription = parseInlineLinks(entry.description);
+                const titleContent = entry.link
+                    ? `<a href="${entry.link}" target="_blank" rel="noopener noreferrer">${entry.title}</a>`
+                    : entry.title;
 
-            const titleContent = entry.link
-                ? `<a href="${entry.link}" target="_blank">${entry.title}</a>`
-                : entry.title;
+                li.innerHTML = `
+                    <p class="news-date">${formatIsoDate(entry.date)}</p>
+                    <div class="news-copy">
+                        <p class="news-title">${titleContent}</p>
+                        <p class="news-desc">${parseInlineLinks(entry.description)}</p>
+                    </div>
+                `;
 
-            li.innerHTML = `<span class="news-date">${entry.date}</span>: <strong>${titleContent}</strong><br><span class="news-desc">${parsedDescription}</span>`;
-            newsList.appendChild(li);
-        });
+                newsList.appendChild(li);
+            });
     })
-    .catch(err => {
-        console.error('Error loading news:', err);
+    .catch((error) => {
+        console.error('Error loading news:', error);
     });
 
 fetch('publications.json')
-    .then(response => response.json())
-    .then(publications => {
+    .then((response) => response.json())
+    .then((publications) => {
         const publicationsList = document.getElementById('publications-list');
-        if (!publicationsList) return;
+        if (!publicationsList) {
+            return;
+        }
 
-        publications.forEach(pub => {
+        publications.forEach((publication) => {
             const li = document.createElement('li');
             li.className = 'publication-item';
 
-            const formattedAuthors = pub.authors.map(author => {
-                if (author === 'Mahmoud Abumandour') {
-                    return `<strong>${author}</strong>`;
-                }
-                return author;
-            }).join(', ');
+            const formattedAuthors = publication.authors
+                .map((author) => (author === 'Mahmoud Abumandour' ? `<strong>${author}</strong>` : author))
+                .join(', ');
 
-            let linksHtml = '';
-            if (pub.links) {
-                const linkButtons = [];
-                if (pub.links.paper) {
-                    linkButtons.push(`<a href="${pub.links.paper}" target="_blank" class="pub-link">[PDF]</a>`);
-                }
-                if (pub.links.code) {
-                    linkButtons.push(`<a href="${pub.links.code}" target="_blank" class="pub-link">[Code]</a>`);
-                }
-                if (pub.links.video) {
-                    linkButtons.push(`<a href="${pub.links.video}" target="_blank" class="pub-link">[Video]</a>`);
-                }
-                if (pub.links.doi) {
-                    linkButtons.push(`<a href="${pub.links.doi}" target="_blank" class="pub-link">[DOI]</a>`);
-                }
-                if (pub.links.slides) {
-                    linkButtons.push(`<a href="${pub.links.slides}" target="_blank" class="pub-link">[Slides]</a>`);
-                }
-                linksHtml = linkButtons.join(' ');
-            }
+            const linkOrder = [
+                ['paper', 'Paper'],
+                ['code', 'Code'],
+                ['video', 'Video'],
+                ['doi', 'DOI'],
+                ['slides', 'Slides']
+            ];
+
+            const linksHtml = (publication.links ? linkOrder : [])
+                .filter(([key]) => publication.links[key])
+                .map(
+                    ([key, label]) =>
+                        `<a href="${publication.links[key]}" target="_blank" rel="noopener noreferrer" class="pub-link">${label}</a>`
+                )
+                .join('');
 
             li.innerHTML = `
-                <div class="pub-title">${pub.title}</div>
-                <div class="pub-authors">${formattedAuthors}</div>
-                <div class="pub-venue">${pub.venue}, ${pub.year}</div>
+                <p class="pub-title">${publication.title}</p>
+                <p class="pub-meta">${formattedAuthors}</p>
+                <p class="pub-meta">${publication.venue}, ${publication.year}</p>
                 ${linksHtml ? `<div class="pub-links">${linksHtml}</div>` : ''}
             `;
 
             publicationsList.appendChild(li);
         });
     })
-    .catch(err => {
-        console.error('Error loading publications:', err);
+    .catch((error) => {
+        console.error('Error loading publications:', error);
     });
