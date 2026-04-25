@@ -1,7 +1,7 @@
 :root {
-    --bg: #e8e4d9;
-    --paper: #f6f2e9;
-    --paper-strong: #e3ddcf;
+    --bg: #c1d5b7;
+    --paper: #edf6e9;
+    --paper-strong: #cfe3d1;
     --ink: #1f221d;
     --muted: #5f665c;
     --accent: #35524a;
@@ -41,7 +41,7 @@ body {
     margin: 0;
     background:
         radial-gradient(circle at top left, rgba(53, 82, 74, 0.07), transparent 28%),
-        linear-gradient(to bottom, var(--bg), #ddd8ca 35%, var(--bg));
+        linear-gradient(to bottom, var(--bg), #caddd2 35%, var(--bg));
     color: var(--ink);
     font-family: "IBM Plex Sans", sans-serif;
     line-height: 1.65;
