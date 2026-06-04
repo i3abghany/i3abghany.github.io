@@ -1,23 +1,20 @@
-const toggleButtons = document.querySelectorAll('.toggle-btn');
-
-toggleButtons.forEach((button) => {
+function wireToggleButton(button) {
     const details = button.nextElementSibling;
-    if (!details) {
-        return;
-    }
+    if (!details) return;
 
     button.setAttribute('aria-expanded', 'false');
     details.hidden = true;
 
     button.addEventListener('click', () => {
         const isOpen = button.classList.contains('active');
-
         button.classList.toggle('active', !isOpen);
         button.setAttribute('aria-expanded', String(!isOpen));
         details.classList.toggle('show', !isOpen);
         details.hidden = isOpen;
     });
-});
+}
+
+document.querySelectorAll('.toggle-btn').forEach(wireToggleButton);
 
 const toggleButton = document.getElementById('dark-mode-toggle');
 const storedTheme = localStorage.getItem('theme');
@@ -81,6 +78,32 @@ fetch('news.json')
     })
     .catch((error) => {
         console.error('Error loading news:', error);
+    });
+
+fetch('experience.json')
+    .then((response) => response.json())
+    .then((entries) => {
+        const list = document.getElementById('experience-list');
+        if (!list) return;
+
+        entries.forEach((entry) => {
+            const li = document.createElement('li');
+
+            const detailsHtml = entry.details
+                .map((d) => `<li>${parseInlineLinks(d)}</li>`)
+                .join('');
+
+            li.innerHTML = `
+                <button class="toggle-btn">${entry.start} - ${entry.end} / <strong>${entry.title}</strong>, ${entry.organization}</button>
+                <ul class="hidden-details">${detailsHtml}</ul>
+            `;
+
+            list.appendChild(li);
+            wireToggleButton(li.querySelector('.toggle-btn'));
+        });
+    })
+    .catch((error) => {
+        console.error('Error loading experience:', error);
     });
 
 fetch('publications.json')

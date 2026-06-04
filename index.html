@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,9 +11,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
         href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap"
-        rel="stylesheet"
-    />
+        rel="stylesheet" />
 </head>
+
 <body>
     <div class="page-shell">
         <header class="site-header">
@@ -28,8 +29,10 @@
                     <p class="lede">
                         Mahmoud Abumandour is a PhD candidate at
                         <a target="_blank" href="https://www.sfu.ca">Simon Fraser University</a>, supervised by
-                        <a target="_blank" href="https://www2.cs.sfu.ca/~alaa/alaa_home.shtml">Professor Alaa Alameldeen</a>.
-                        His interests span software systems, computer architecture, and the boundary where hardware and AI meet.
+                        <a target="_blank" href="https://www2.cs.sfu.ca/~alaa/alaa_home.shtml">Professor Alaa
+                            Alameldeen</a>.
+                        His interests span software systems, computer architecture, and the boundary where hardware and
+                        AI meet.
                     </p>
                     <br>
                     <p class="lede">
@@ -42,12 +45,17 @@
                     <img src="files/p2.jpg" alt="Portrait of Mahmoud Abumandour" class="profile-image" />
                     <p class="identity-role">PhD Candidate @ SFU</p>
                     <div class="icons" aria-label="External links">
-                        <a href="files/Mahmoud_Abumandour_March_2026.pdf" target="_blank" aria-label="CV"><i class="fas fa-file-alt"></i></a>
-                        <a href="https://scholar.google.com/citations?user=p4UydOgAAAAJ&hl=en" target="_blank" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                        <a href="files/Mahmoud_Abumandour_March_2026.pdf" target="_blank" aria-label="CV"><i
+                                class="fas fa-file-alt"></i></a>
+                        <a href="https://scholar.google.com/citations?user=p4UydOgAAAAJ&hl=en" target="_blank"
+                            aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
                         <!-- <a href="https://orcid.org/0009-0004-9188-1882" target="_blank" aria-label="ORCID"><i class="fab fa-orcid"></i></a> -->
-                        <a href="https://www.linkedin.com/in/abumandour" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://github.com/i3abghany" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                        <a href="mailto:mahmoud_abumandour@sfu.ca" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                        <a href="https://www.linkedin.com/in/abumandour" target="_blank" aria-label="LinkedIn"><i
+                                class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/i3abghany" target="_blank" aria-label="GitHub"><i
+                                class="fab fa-github"></i></a>
+                        <a href="mailto:mahmoud_abumandour@sfu.ca" aria-label="Email"><i
+                                class="fas fa-envelope"></i></a>
                     </div>
                 </div>
             </div>
@@ -65,43 +73,7 @@
             <section>
                 <p class="section-label">Experience</p>
                 <div class="section-body">
-                    <ul class="timeline-list experience-ul">
-                        <li>
-                            <button class="toggle-btn">Sep 2022 - Present / <strong>Research Assistant</strong>, Simon Fraser University</button>
-                            <ul class="hidden-details">
-                                <li>Assessed the impact of different attack vectors against quantized DNNs.</li>
-                                <li>Devised a fatal bit-flip attack against quantized DNNs, including LLMs, and explored potential defenses.</li>
-                            </ul>
-                        </li>
-                        <li>
-                            <button class="toggle-btn">Jan 2024 - May 2024 / <strong>Graduate CPU Architecture Intern</strong>, Intel Corporation</button>
-                            <ul class="hidden-details">
-                                <li>Researched, modeled, and assessed CPU front-end features including instruction prefetching and caching.</li>
-                                <li>Performed workload analysis to categorize instruction cache footprint and branch behavior.</li>
-                                <li>Analyzed sources of miscorrelation between functional and cycle-accurate simulators.</li>
-                            </ul>
-                        </li>
-                        <li>
-                            <button class="toggle-btn">May 2022 - Sep 2022 / <strong>Open-Source Developer</strong>, Google Summer of Code (RTEMS)</button>
-                            <ul class="hidden-details">
-                                <li>Used profiler-guided optimizations to achieve an 8x performance improvement in the release generation process.</li>
-                                <li><a href="https://avx.hashnode.dev/gsoc-2022-final-submission-rtems-release-generator" target="_blank">RTEMS: Release Generator</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <button class="toggle-btn">Oct 2021 - Feb 2022 / <strong>Software Engineering Intern</strong>, Master Micro</button>
-                            <ul class="hidden-details">
-                                <li>Designed and assessed the performance of two data storage schemes for design points data structures.</li>
-                            </ul>
-                        </li>
-                        <li>
-                            <button class="toggle-btn">May 2021 - Sep 2021 / <strong>Open-Source Developer</strong>, Google Summer of Code (QEMU)</button>
-                            <ul class="hidden-details">
-                                <li>Implemented multicore cache emulation and performance evaluation of userspace and full-system workloads.</li>
-                                <li><a href="https://www.qemu.org/2021/08/19/tcg-cache-modelling-plugin/" target="_blank">QEMU: TCG Cache Modelling Plugin</a></li>
-                            </ul>
-                        </li>
-                    </ul>
+                    <ul id="experience-list" class="timeline-list experience-ul"></ul>
                 </div>
             </section>
 
@@ -117,7 +89,8 @@
                 <div class="section-body prose">
                     <ul class="plain-list">
                         <li><strong>CMPT 130</strong> / Introduction to Computer Programming (Fall 2025)</li>
-                        <li><strong>CMPT 295</strong> / Introduction to Computer Systems (Spring 2023, Summer 2024, Fall 2024, Spring 2025)</li>
+                        <li><strong>CMPT 295</strong> / Introduction to Computer Systems (Spring 2023, Summer 2024, Fall
+                            2024, Spring 2025)</li>
                         <li><strong>CMPT 379</strong> / Principles of Compiler Design (Summer 2023, Summer 2025)</li>
                         <li><strong>CMPT 431</strong> / Distributed Systems (Fall 2025)</li>
                         <li><strong>CMPT 750</strong> / Computer Architecture (Fall 2023, Fall 2024, Spring 2026)</li>
@@ -134,14 +107,17 @@
                             <li>
                                 <button class="toggle-btn">PhD in Computer Science / Sep 2024 - Present</button>
                                 <ul class="hidden-details">
-                                    <li>Advisor: <a href="https://www2.cs.sfu.ca/~alaa/alaa_home.shtml" target="_blank">Prof. Alaa Alameldeen</a></li>
+                                    <li>Advisor: <a href="https://www2.cs.sfu.ca/~alaa/alaa_home.shtml"
+                                            target="_blank">Prof. Alaa Alameldeen</a></li>
                                 </ul>
                             </li>
                             <li>
                                 <button class="toggle-btn">MSc in Computer Science / Sep 2022 - Aug 2024</button>
                                 <ul class="hidden-details">
-                                    <li>Advisor: <a href="https://www2.cs.sfu.ca/~alaa/alaa_home.shtml" target="_blank">Prof. Alaa Alameldeen</a></li>
-                                    <li>Thesis: Uncovering and Mitigating Bit-Flip Vulnerabilities in Full-Precision and Quantized DNNs</li>
+                                    <li>Advisor: <a href="https://www2.cs.sfu.ca/~alaa/alaa_home.shtml"
+                                            target="_blank">Prof. Alaa Alameldeen</a></li>
+                                    <li>Thesis: Uncovering and Mitigating Bit-Flip Vulnerabilities in Full-Precision and
+                                        Quantized DNNs</li>
                                 </ul>
                             </li>
                         </ul>
@@ -151,7 +127,8 @@
                         <p class="subsection-title">Mansoura University <span>Mansoura, Egypt</span></p>
                         <ul class="timeline-list education-ul">
                             <li>
-                                <button class="toggle-btn">BEng in Computer and Communication Engineering / Oct 2017 - Jul 2022</button>
+                                <button class="toggle-btn">BEng in Computer and Communication Engineering / Oct 2017 -
+                                    Jul 2022</button>
                                 <ul class="hidden-details">
                                     <li>Ranked first in class with a GPA of 3.96/4.0</li>
                                 </ul>
@@ -165,7 +142,8 @@
                 <p class="section-label">Service</p>
                 <div class="section-body prose">
                     <ul class="plain-list">
-                        <li>Volunteered in <a href="https://microarch.org/micro57/" target="_blank">MICRO 2024</a> - Organizing Program Committee meetings</li>
+                        <li>Volunteered in <a href="https://microarch.org/micro57/" target="_blank">MICRO 2024</a> -
+                            Organizing Program Committee meetings</li>
                     </ul>
                 </div>
             </section>
@@ -178,4 +156,5 @@
 
     <script src="index.js"></script>
 </body>
+
 </html>

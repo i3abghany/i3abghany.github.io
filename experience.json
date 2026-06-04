@@ -1,0 +1,61 @@
+[
+    {
+        "start": "June 2026",
+        "end": "Present",
+        "title": "Research Intern",
+        "organization": "Max Planck Institute for Security and Privacy",
+        "details": [
+            "Working on an FPGA-based fault-injection framework to evaluate the security of hardened cores."
+        ]
+    },
+    {
+        "start": "Sep 2022",
+        "end": "Present",
+        "title": "Research Assistant",
+        "organization": "Simon Fraser University",
+        "details": [
+            "Assessed the impact of different attack vectors against quantized DNNs.",
+            "Devised a fatal bit-flip attack against quantized DNNs, including LLMs, and explored potential defenses."
+        ]
+    },
+    {
+        "start": "Jan 2024",
+        "end": "May 2024",
+        "title": "Graduate CPU Architecture Intern",
+        "organization": "Intel Corporation",
+        "details": [
+            "Researched, modeled, and assessed CPU front-end features including instruction prefetching and caching.",
+            "Performed workload analysis to categorize instruction cache footprint and branch behavior.",
+            "Analyzed sources of miscorrelation between functional and cycle-accurate simulators."
+        ]
+    },
+    {
+        "start": "May 2022",
+        "end": "Sep 2022",
+        "title": "Open-Source Developer",
+        "organization": "Google Summer of Code (RTEMS)",
+        "details": [
+            "Used profiler-guided optimizations to achieve an 8x performance improvement in the release generation process.",
+            "[RTEMS: Release Generator](https://avx.hashnode.dev/gsoc-2022-final-submission-rtems-release-generator)"
+        ]
+    },
+    {
+        "start": "Oct 2021",
+        "end": "Feb 2022",
+        "title": "Software Engineering Intern",
+        "organization": "Master Micro",
+        "details": [
+            "Designed and assessed the performance of two data storage schemes for design points data structures."
+        ]
+    },
+    {
+        "start": "May 2021",
+        "end": "Sep 2021",
+        "title": "Open-Source Developer",
+        "organization": "Google Summer of Code (QEMU)",
+        "details": [
+            "Implemented multicore cache emulation and performance evaluation of userspace and full-system workloads.",
+            "[QEMU: TCG Cache Modelling Plugin](https://www.qemu.org/2021/08/19/tcg-cache-modelling-plugin/)"
+        ]
+    }
+]

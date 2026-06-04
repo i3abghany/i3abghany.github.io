@@ -10,8 +10,8 @@
     "description": "Our paper on Position-Adaptive Temporal Sparsity for KV Caches in Long-Context LLMs has been accepted at [SPICE 2025](https://spice.cs.umd.edu/), co-located with [MICRO 2025](https://www.microarch.org/micro58/)."
   },
   {
-    "date": "2026-03-06",
-    "title": "Paper accepted at MLBench'26",
-    "description": "Our paper on Characterizing Retrieval Reliability using Hardware Profiling in Long-Context LLM Inference has been accepted at [MLBench'26](https://memani1.github.io/mlbench26/), co-located with [ASPLOS 2026](https://www.asplos-conference.org/asplos2026/)."
+    "date": "2026-06-01",
+    "title": "Joined the Max Planck Institute for Security and Privacy",
+    "description": "I joined the Max Planck Institute for Security and Privacy as a Research Intern, where I am working on an FPGA-based fault-injection framework to evaluate the security of hardened cores. I am working in [Dr. Christof Paar's](https://www.mpi-sp.org/paar) research group."
   }
 ]
