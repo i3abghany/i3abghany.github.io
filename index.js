@@ -16,23 +16,6 @@ function wireToggleButton(button) {
 
 document.querySelectorAll('.toggle-btn').forEach(wireToggleButton);
 
-const toggleButton = document.getElementById('dark-mode-toggle');
-const storedTheme = localStorage.getItem('theme');
-
-if (storedTheme === 'dark') {
-    document.body.classList.add('dark-mode');
-}
-
-if (toggleButton) {
-    toggleButton.textContent = document.body.classList.contains('dark-mode') ? 'Day' : 'Moon';
-
-    toggleButton.addEventListener('click', () => {
-        const isDark = document.body.classList.toggle('dark-mode');
-        localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        toggleButton.textContent = isDark ? 'Day' : 'Moon';
-    });
-}
-
 function parseInlineLinks(text) {
     const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
     return text.replace(linkRegex, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');

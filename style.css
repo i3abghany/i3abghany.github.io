@@ -1,3 +1,58 @@
+/* ---------------------------------------------------------------------------
+   Self-hosted fonts, vendored from Google Fonts so that loading a page does not
+   disclose the visitor's IP address to a third party.
+
+   Both families are variable fonts, so one file covers every weight we use. The
+   declared weight ranges mirror the weights previously requested from Google's
+   CSS API, which keeps rendering identical: <strong> asks for 700 and clamps to
+   600, as it did before.
+
+   latin-ext is lazy - unicode-range means the browser fetches it only if a glyph
+   in that range actually appears on the page.
+
+   Licensed under the SIL Open Font License 1.1; see files/fonts/OFL-*.txt.
+   --------------------------------------------------------------------------- */
+
+/* IBM Plex Sans - latin */
+@font-face {
+    font-family: "IBM Plex Sans";
+    font-style: normal;
+    font-weight: 400 600;
+    font-display: swap;
+    src: url("files/fonts/ibm-plex-sans-latin.woff2") format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* IBM Plex Sans - latin-ext */
+@font-face {
+    font-family: "IBM Plex Sans";
+    font-style: normal;
+    font-weight: 400 600;
+    font-display: swap;
+    src: url("files/fonts/ibm-plex-sans-latin-ext.woff2") format("woff2");
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* Fraunces - latin */
+@font-face {
+    font-family: "Fraunces";
+    font-style: normal;
+    font-weight: 500 600;
+    font-display: swap;
+    src: url("files/fonts/fraunces-latin.woff2") format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Fraunces - latin-ext */
+@font-face {
+    font-family: "Fraunces";
+    font-style: normal;
+    font-weight: 500 600;
+    font-display: swap;
+    src: url("files/fonts/fraunces-latin-ext.woff2") format("woff2");
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
 :root {
     --bg: #c1d5b7;
     --paper: #edf6e9;
@@ -144,8 +199,7 @@ a {
 
 .masthead-copy h1 {
     margin: 0.35rem 0 1rem;
-    /* font-family: "Fraunces", serif; */
-    font-family: "Oswald", sans-serif;
+    font-family: "Fraunces", serif;
     font-size: clamp(2.4rem, 6vw, 4.5rem);
     line-height: 0.98;
     letter-spacing: -0.03em;
@@ -201,8 +255,16 @@ a {
     background: transparent;
     color: var(--ink);
     text-decoration: none;
-    font-size: 0.95rem;
     transition: background-color 140ms ease, color 140ms ease, border-color 140ms ease;
+}
+
+/* Icons are inline SVG from the sprite in index.html rather than an icon font.
+   fill: currentColor lets them inherit the link colour, so the hover transition
+   above applies to them unchanged. */
+.icons a svg {
+    width: 1.05rem;
+    height: 1.05rem;
+    fill: currentColor;
 }
 
 .icons a:hover,
@@ -378,8 +440,7 @@ section {
 
 .news-title {
     margin: 0 0 0.22rem;
-    /* font-family: "Fraunces", serif; */
-    font-family: "Oswald", sans-serif;
+    font-family: "Fraunces", serif;
     font-size: 1.25rem;
     line-height: 1.15;
 }
@@ -410,8 +471,7 @@ section {
 
 .pub-title {
     margin: 0;
-    /* font-family: "Fraunces", serif; */
-    font-family: "Oswald", sans-serif;
+    font-family: "Fraunces", serif;
     font-size: 1.25rem;
     line-height: 1.15;
 }
@@ -442,10 +502,15 @@ section {
     color: var(--link-hover);
 }
 
+/* Horizontal padding matches .content-grid so the footer text lines up with the
+   content column above it, and so the right-hand link is not flush to the edge. */
 .site-footer {
-    padding: 1rem 0 0;
-    padding-left: 1rem;
-    padding-bottom: 0.5rem;
+    padding: 1rem 1.5rem 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    column-gap: 1rem;
 }
 
 .site-footer p {
