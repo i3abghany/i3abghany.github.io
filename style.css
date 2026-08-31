@@ -197,13 +197,15 @@ a {
     align-items: start;
 }
 
-.masthead-copy h1 {
-    margin: 0.35rem 0 1rem;
-    font-family: "Fraunces", serif;
-    font-size: clamp(2.4rem, 6vw, 4.5rem);
-    line-height: 0.98;
-    letter-spacing: -0.03em;
-    max-width: 12ch;
+/* The name and the section labels are h1/h2 so that the document has a real
+   heading outline for crawlers and screen readers. They are styled as running
+   text, not as headings, so every size/weight is set explicitly below and the
+   browser's bold-and-oversized defaults are overridden. */
+.name-title,
+.section-label,
+.news-title,
+.pub-title {
+    font-weight: 400;
 }
 
 .kicker {

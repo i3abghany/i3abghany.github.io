@@ -1,0 +1,31 @@
+name: Build check
+
+# index.html and sitemap.xml are generated from news.json, experience.json and
+# publications.json by build.js (see that file's header comment). This job
+# re-runs the generator and fails if the result differs from what's committed,
+# which is what catches "edited the JSON, forgot to run node build.js".
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - run: node build.js
+
+      - name: Fail if generated files are out of date
+        run: |
+          if ! git diff --quiet -- index.html sitemap.xml; then
+            echo "::error::index.html and/or sitemap.xml are out of date. Run 'node build.js' and commit the result."
+            git diff -- index.html sitemap.xml
+            exit 1
+          fi
