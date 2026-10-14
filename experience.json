@@ -1,14 +1,5 @@
 [
     {
-        "start": "June 2026",
-        "end": "Present",
-        "title": "Research Intern",
-        "organization": "Max Planck Institute for Security and Privacy",
-        "details": [
-            "Working on an FPGA-based fault-injection framework to evaluate the security of hardened cores."
-        ]
-    },
-    {
         "start": "Sep 2022",
         "end": "Present",
         "title": "Research Assistant",
@@ -16,6 +7,15 @@
         "details": [
             "Assessed the impact of different attack vectors against quantized DNNs.",
             "Devised a fatal bit-flip attack against quantized DNNs, including LLMs, and explored potential defenses."
+        ]
+    },
+    {
+        "start": "June 2026",
+        "end": "Sep 2026",
+        "title": "Research Intern",
+        "organization": "Max Planck Institute for Security and Privacy",
+        "details": [
+            "Working on an FPGA-based fault-injection framework to evaluate the security of hardened cores."
         ]
     },
     {
