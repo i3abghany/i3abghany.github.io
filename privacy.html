@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Privacy - Mahmoud Abumandour</title>
-    <meta name="description" content="What this website stores and does not store: no cookies, no analytics, no third-party content." />
+    <meta name="description" content="This website sets no cookies, runs no analytics, and loads no third-party content. It stores one theme preference in your browser." />
     <meta name="author" content="Mahmoud Abumandour" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://i3abghany.github.io/privacy.html" />
@@ -13,7 +13,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Mahmoud Abumandour" />
     <meta property="og:title" content="Privacy - Mahmoud Abumandour" />
-    <meta property="og:description" content="What this website stores and does not store: no cookies, no analytics, no third-party content." />
+    <meta property="og:description" content="This website sets no cookies, runs no analytics, and loads no third-party content. It stores one theme preference in your browser." />
     <meta property="og:url" content="https://i3abghany.github.io/privacy.html" />
     <link rel="stylesheet" href="style.css" />
     <link rel="preload" href="files/fonts/ibm-plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
@@ -34,9 +34,10 @@
                 <div class="masthead-copy">
                     <h1 class="kicker name-title">Privacy</h1>
                     <p class="lede">
-                        This is a personal academic homepage. It has no analytics, no advertising, no tracking, and
-                        no third-party content. The short version: nothing you do here is measured, and nothing about
-                        your visit reaches anyone but the company hosting the files.
+                        This site sets no cookies, runs no analytics or advertising code, and loads every file from
+                        i3abghany.github.io. It stores one value in your browser, and only after you press the theme
+                        toggle. GitHub, which hosts the site, is the only party that receives information about your
+                        visit.
                     </p>
                 </div>
             </div>
@@ -45,25 +46,24 @@
 
         <main class="content-grid">
             <section>
-                <h2 class="section-label">Cookies</h2>
-                <div class="section-body prose">
-                    <p>None. This site sets no cookies of any kind.</p>
-                </div>
-            </section>
-
-            <section>
-                <h2 class="section-label">Local storage</h2>
+                <h2 class="section-label">Browser storage</h2>
                 <div class="section-body prose">
                     <p>
-                        One item is stored in your browser's local storage: an entry named <strong>theme</strong>,
-                        whose value is either <strong>dark</strong> or <strong>light</strong>. It is written only when
-                        you press the light/dark toggle, and it exists so the site remembers that choice on your next
-                        visit.
+                        This site sets no cookies. It stores one local storage entry, <code>theme</code>, set to
+                        <code>dark</code> or <code>light</code>. The script <code>theme.js</code> writes it only when
+                        you press the light/dark toggle, and reads it on later visits to restore your chosen theme.
                     </p>
                     <p>
-                        It never leaves your device, is never transmitted anywhere, and is not used to recognise,
-                        count, or profile you. You can remove it at any time by clearing site data for this domain in
-                        your browser settings.
+                        The entry stays on your device. Unlike cookies, which the browser attaches to every request,
+                        local storage is readable only by scripts on the page, and no script here transmits it. Since
+                        the value carries one bit and is shared by every visitor who chose the same theme, it cannot
+                        identify you.
+                    </p>
+                    <p>
+                        Under Article 5(3) of the EU ePrivacy Directive, storage that is strictly necessary for a
+                        service the user explicitly requested needs no consent. The theme entry qualifies because you
+                        create it by pressing the toggle, so the site shows no cookie banner. To delete the entry,
+                        clear cookies and site data for i3abghany.github.io in your browser.
                     </p>
                 </div>
             </section>
@@ -72,9 +72,10 @@
                 <h2 class="section-label">Third parties</h2>
                 <div class="section-body prose">
                     <p>
-                        There are none while the page loads. Fonts and icons are served from this domain rather than
-                        from Google Fonts or a CDN, so no outside company is told your IP address merely because you
-                        opened this page.
+                        Every file this site loads, including fonts and icons, comes from i3abghany.github.io. A font
+                        embedded from a provider such as Google Fonts would make your browser send that provider your
+                        IP address and the site you are reading. Since I host the fonts myself and inline the icons,
+                        no company other than the host learns that you visited.
                     </p>
                 </div>
             </section>
@@ -83,15 +84,18 @@
                 <h2 class="section-label">Hosting</h2>
                 <div class="section-body prose">
                     <p>
-                        The site is hosted on GitHub Pages by GitHub, Inc. Like any web host, GitHub receives your IP
-                        address and request details in its server logs in order to deliver the page and to protect the
-                        service against abuse. This is described in the
+                        GitHub, Inc. hosts this site on GitHub Pages. Every request carries your IP address so that
+                        the server can reply, and GitHub
+                        <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages"
+                            target="_blank" rel="noopener noreferrer">states</a> that it logs these addresses for
+                        security purposes. The
                         <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement"
-                            target="_blank" rel="noopener noreferrer">GitHub General Privacy Statement</a>.
+                            target="_blank" rel="noopener noreferrer">GitHub General Privacy Statement</a> governs that
+                        logging.
                     </p>
                     <p>
-                        GitHub Pages provides me with no visitor statistics or logs, so I neither receive nor can
-                        access that information.
+                        GitHub Pages gives me no visitor statistics or logs, so I receive no information about your
+                        visit.
                     </p>
                 </div>
             </section>
@@ -100,10 +104,10 @@
                 <h2 class="section-label">Links out</h2>
                 <div class="section-body prose">
                     <p>
-                        Links to other sites - publishers, Google Scholar, LinkedIn, GitHub - are ordinary links, and
-                        those sites apply their own privacy policies once you follow one. Nothing is loaded from them
-                        beforehand, and the links are marked <code>rel="noreferrer"</code> so the destination is not
-                        told which page you came from.
+                        Links to other sites, such as Google Scholar or LinkedIn, load nothing until you follow them,
+                        after which those sites' privacy policies apply. Each link carries
+                        <code>rel="noreferrer"</code>, so your browser does not tell the destination that you came
+                        from this site.
                     </p>
                 </div>
             </section>
@@ -112,8 +116,8 @@
                 <h2 class="section-label">Email</h2>
                 <div class="section-body prose">
                     <p>
-                        If you write to me, your message sits in my university mailbox and is used only to reply. It
-                        is not added to any list.
+                        If you email me, your message is stored in my Simon Fraser University mailbox. I use it only
+                        to reply to you, and I do not add your address to any list.
                     </p>
                 </div>
             </section>
@@ -122,12 +126,10 @@
                 <h2 class="section-label">Contact</h2>
                 <div class="section-body prose">
                     <p>
-                        Questions about this page, or about any data relating to you, can go to
-                        <a href="mailto:mahmoud_abumandour@sfu.ca">mahmoud_abumandour@sfu.ca</a>. If you are in the
-                        EU, EEA, or UK, you also have the right to lodge a complaint with your national data
-                        protection authority.
+                        Send questions about this page to
+                        <a href="mailto:mahmoud_abumandour@sfu.ca">mahmoud_abumandour@sfu.ca</a>.
                     </p>
-                    <p><em>Last updated 30 July 2026.</em></p>
+                    <p><em>Last updated 20 October 2026.</em></p>
                 </div>
             </section>
         </main>
