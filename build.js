@@ -158,7 +158,7 @@ function renderJsonLd(publications) {
         image: `${SITE_URL}/files/profile.jpg`,
         jobTitle: 'PhD Candidate',
         description:
-            'PhD candidate at Simon Fraser University working on computer architecture, software systems, and the security and reliability of deep learning on edge devices.',
+            'PhD candidate at Simon Fraser University working on computer architecture, software systems, and hardware security, including CPU fuzzing and fault attacks on deep learning.',
         email: 'mailto:mahmoud_abumandour@sfu.ca',
         affiliation: [
             {
@@ -187,6 +187,8 @@ function renderJsonLd(publications) {
         knowsAbout: [
             'Computer Architecture',
             'Hardware Security',
+            'CPU Fuzzing',
+            'Hardware Isolation',
             'Fault Injection Attacks',
             'Deep Neural Network Reliability',
             'Bit-Flip Attacks',
