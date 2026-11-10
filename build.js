@@ -13,8 +13,11 @@
    BEGIN/END marker comments. It also derives the schema.org JSON-LD block and
    sitemap.xml from the same data, so those cannot drift out of sync.
 
-   Run `node build.js` after editing any of the .json files, then commit the
-   regenerated index.html and sitemap.xml.
+   It also copies the PDF that the CV icon in index.html links to into cv.pdf,
+   so https://i3abghany.github.io/cv.pdf always serves the current CV.
+
+   Run `node build.js` after editing any of the .json files or changing the CV
+   link, then commit the regenerated index.html, sitemap.xml and cv.pdf.
    --------------------------------------------------------------------------- */
 
 const fs = require('fs');
@@ -275,6 +278,45 @@ function renderSitemap(news) {
     ].join('\n');
 }
 
+/* --- cv.pdf --------------------------------------------------------------- */
+
+// The CV icon links to a dated file (files/..._Oct_2026.pdf), so each new CV
+// gets a new URL. cv.pdf is a byte-for-byte copy of whatever that link points
+// at, giving a stable URL to hand out that serves the PDF directly rather than
+// redirecting. It is a copy, not a symlink, because Git on Windows checks
+// symlinks out as plain text files. Git stores identical content once, so the
+// copy adds nothing to the repository.
+const CV_ALIAS = 'cv.pdf';
+
+function findCvHref(html) {
+    const tag = (html.match(/<a\b[^>]*>/g) || []).find((t) => /\baria-label="CV"/.test(t));
+    const href = tag && tag.match(/\bhref="([^"]+)"/);
+    if (!href) {
+        throw new Error('CV link not found in index.html. Expected <a href="..." aria-label="CV">.');
+    }
+    return href[1];
+}
+
+function writeCvAlias(html) {
+    const href = findCvHref(html);
+    if (/^([a-z]+:)?\/\//i.test(href) || path.posix.normalize(href) === CV_ALIAS) {
+        throw new Error(`The CV link must point at a PDF in this repo other than ${CV_ALIAS}, got "${href}".`);
+    }
+
+    const source = path.join(ROOT, href);
+    if (!fs.existsSync(source)) {
+        throw new Error(`The CV link points at "${href}", which does not exist.`);
+    }
+
+    const pdf = fs.readFileSync(source);
+    const target = path.join(ROOT, CV_ALIAS);
+    if (!fs.existsSync(target) || !pdf.equals(fs.readFileSync(target))) {
+        fs.writeFileSync(target, pdf);
+    }
+
+    return href;
+}
+
 /* --- splice into index.html ----------------------------------------------- */
 
 function replaceBlock(html, marker, body) {
@@ -310,10 +352,11 @@ function main() {
 
     fs.writeFileSync(path.join(ROOT, 'index.html'), html);
     fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), renderSitemap(news));
+    const cv = writeCvAlias(html);
 
     console.log(
         `Built index.html (${news.length} news, ${experience.length} experience, ` +
-            `${publications.length} publications) and sitemap.xml`
+            `${publications.length} publications), sitemap.xml and ${CV_ALIAS} (from ${cv})`
     );
 }
 

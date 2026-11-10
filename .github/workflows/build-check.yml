@@ -1,9 +1,10 @@
 name: Build check
 
 # index.html and sitemap.xml are generated from news.json, experience.json and
-# publications.json by build.js (see that file's header comment). This job
-# re-runs the generator and fails if the result differs from what's committed,
-# which is what catches "edited the JSON, forgot to run node build.js".
+# publications.json by build.js (see that file's header comment), and cv.pdf is
+# copied from whatever the CV icon in index.html links to. This job re-runs the
+# generator and fails if the result differs from what's committed, which is what
+# catches "edited the JSON / changed the CV link, forgot to run node build.js".
 on:
   push:
     branches: [main]
@@ -23,9 +24,12 @@ jobs:
       - run: node build.js
 
       - name: Fail if generated files are out of date
+        # git status rather than git diff, so a cv.pdf that was never committed
+        # (untracked after the build) also fails the check.
         run: |
-          if ! git diff --quiet -- index.html sitemap.xml; then
-            echo "::error::index.html and/or sitemap.xml are out of date. Run 'node build.js' and commit the result."
+          if [ -n "$(git status --porcelain -- index.html sitemap.xml cv.pdf)" ]; then
+            echo "::error::index.html, sitemap.xml and/or cv.pdf are out of date. Run 'node build.js' and commit the result."
+            git status --short -- index.html sitemap.xml cv.pdf
             git diff -- index.html sitemap.xml
             exit 1
           fi
